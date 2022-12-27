@@ -2,7 +2,7 @@
 
 ![](roadmap.JPG)
 
-#Item-Based Collobarative-Filtering
+##Item-Based Collobarative-Filtering
 Collaborative Filtering (CF) produces recommendations by evaluating the ratings of items by users.<br/>
 1) Pre-process datasets to remove incosistencies and type errors
 2) Create the user-item matrix
