@@ -1,3 +1,3 @@
 # Amazon-Recommendation-System
 
-![](Capstone project roadmap.pdf)
+![](roadmap.JPG)
