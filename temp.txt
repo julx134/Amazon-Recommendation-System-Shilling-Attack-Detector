@@ -1,0 +1,78 @@
+###### Step 3: Create User-Movie Matrix
+# Create user-item matrix
+matrix = ratings.pivot_table(index='itemId', columns='userId', values='rating')
+matrix.head()
+
+
+###### Step 5: Data Normalization
+# Normalize user-item matrix
+matrix_norm = matrix.subtract(matrix.mean(axis=1), axis = 0)
+matrix_norm.head()
+###### Step 6: Calculate Similarity Score
+# Item similarity matrix using Pearson correlation
+item_similarity = matrix_norm.T.corr()
+item_similarity.head()
+# Item similarity matrix using cosine similarity
+item_similarity_cosine = cosine_similarity(matrix_norm.fillna(0))
+item_similarity_cosine
+###### Step 7: Predict User's Rating For One Movie
+# Pick a user ID
+picked_userid = 1
+# Pick a movie
+picked_movie = 'American Pie (1999)'
+# Movies that the target user has watched
+picked_userid_watched = pd.DataFrame(matrix_norm[picked_userid].dropna(axis=0, how='all')\
+                          .sort_values(ascending=False))\
+                          .reset_index()\
+                          .rename(columns={1:'rating'})
+picked_userid_watched.head()
+# Similarity score of the movie American Pie with all the other movies
+picked_movie_similarity_score = item_similarity[[picked_movie]].reset_index().rename(columns={'American Pie (1999)':'similarity_score'})
+# Rank the similarities between the movies user 1 rated and American Pie.
+n = 5
+picked_userid_watched_similarity = pd.merge(left=picked_userid_watched, 
+                                            right=picked_movie_similarity_score, 
+                                            on='title', 
+                                            how='inner')\
+                                     .sort_values('similarity_score', ascending=False)[:5]
+# Take a look at the User 1 watched movies with highest similarity
+picked_userid_watched_similarity
+# Calculate the predicted rating using weighted average of similarity scores and the ratings from user 1
+predicted_rating = round(np.average(picked_userid_watched_similarity['rating'], 
+                                    weights=picked_userid_watched_similarity['similarity_score']), 6)
+print(f'The predicted rating for {picked_movie} by user {picked_userid} is {predicted_rating}' )
+###### Step 8: Movie Recommendation
+# Item-based recommendation function
+def item_based_rec(picked_userid=1, number_of_similar_items=5, number_of_recommendations =3):
+  import operator
+  # Movies that the target user has not watched
+  picked_userid_unwatched = pd.DataFrame(matrix_norm[picked_userid].isna()).reset_index()
+  picked_userid_unwatched = picked_userid_unwatched[picked_userid_unwatched[1]==True]['title'].values.tolist()
+  # Movies that the target user has watched
+  picked_userid_watched = pd.DataFrame(matrix_norm[picked_userid].dropna(axis=0, how='all')\
+                            .sort_values(ascending=False))\
+                            .reset_index()\
+                            .rename(columns={1:'rating'})
+  
+  # Dictionary to save the unwatched movie and predicted rating pair
+  rating_prediction ={}  
+  # Loop through unwatched movies          
+  for picked_movie in picked_userid_unwatched: 
+    # Calculate the similarity score of the picked movie iwth other movies
+    picked_movie_similarity_score = item_similarity[[picked_movie]].reset_index().rename(columns={picked_movie:'similarity_score'})
+    # Rank the similarities between the picked user watched movie and the picked unwatched movie.
+    picked_userid_watched_similarity = pd.merge(left=picked_userid_watched, 
+                                                right=picked_movie_similarity_score, 
+                                                on='title', 
+                                                how='inner')\
+                                        .sort_values('similarity_score', ascending=False)[:number_of_similar_items]
+    # Calculate the predicted rating using weighted average of similarity scores and the ratings from user 1
+    predicted_rating = round(np.average(picked_userid_watched_similarity['rating'], 
+                                        weights=picked_userid_watched_similarity['similarity_score']), 6)
+    # Save the predicted rating in the dictionary
+    rating_prediction[picked_movie] = predicted_rating
+    # Return the top recommended movies
+  return sorted(rating_prediction.items(), key=operator.itemgetter(1), reverse=True)[:number_of_recommendations]
+# Get recommendations
+recommended_movie = item_based_rec(picked_userid=1, number_of_similar_items=5, number_of_recommendations =3)
+recommended_movie

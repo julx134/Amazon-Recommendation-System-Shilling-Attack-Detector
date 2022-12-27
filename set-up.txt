@@ -1,0 +1,7 @@
+--install python version > 3.x
+
+#install dependencies
+pip install pandas
+pip install scipy
+pip install sklearn
+pip install openpyxl
