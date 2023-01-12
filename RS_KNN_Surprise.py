@@ -1,10 +1,9 @@
-from surprise import Dataset, SVD
+from surprise import Dataset, KNNBasic, Reader, Dataset
 from surprise.model_selection import cross_validate
-from surprise import KNNBasic
 
 
-# Load the movielens-100k dataset (download it if needed),
-data = Dataset.load_builtin("ml-100k")
+# Load the clean movielens-100k dataset
+data_movielens_clean = Dataset.load_builtin("ml-100k")
 
 # We'll use the item-based collaborative filtering algorithm
 sim_options = {
@@ -13,5 +12,6 @@ sim_options = {
 }
 algo = KNNBasic(sim_options=sim_options)
 
+
 # Run 5-fold cross-validation and print results
-cross_validate(algo, data, measures=["RMSE", "MAE"], cv=5, verbose=True)
+cross_validate(algo, data_movielens_clean, measures=["RMSE", "MAE"], cv=5, verbose=True)

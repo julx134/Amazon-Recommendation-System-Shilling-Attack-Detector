@@ -5,3 +5,7 @@ pip install pandas
 pip install scipy
 pip install sklearn
 pip install openpyxl
+pip install numpy
+pip install scikit-surprise
+
+
