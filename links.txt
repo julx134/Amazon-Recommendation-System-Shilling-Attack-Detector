@@ -1,0 +1,9 @@
+#stable movielens 100K dataset
+https://files.grouplens.org/datasets/movielens/ml-100k.zip
+
+#infected movielens 1M dataset
+https://ieee-dataport.org/documents/maliciousml-movielens-dataset-attacked-diverse-profile-injection-attacks#files
+
+#amazon appliance 600k dataset - ratings only
+https://nijianmo.github.io/amazon/index.html
+
