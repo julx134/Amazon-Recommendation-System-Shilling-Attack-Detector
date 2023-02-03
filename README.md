@@ -2,6 +2,9 @@
 
 ![](roadmap.JPG)
 
+## [Link to Google Collab](https://colab.research.google.com/drive/19Qat-59Rz7laqR9NSibKeBcxBSBtFptx?usp=sharing)
+
+
 ## Item-Based Collobarative-Filtering
 Collaborative Filtering (CF) produces recommendations by evaluating the ratings of items by users.<br/>
 1) Pre-process datasets to remove incosistencies and type errors
