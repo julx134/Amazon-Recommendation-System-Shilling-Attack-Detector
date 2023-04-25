@@ -3,9 +3,11 @@
 ![](roadmap.JPG)
 
 ## Links
-[Google Collab for Recommendation System](https://colab.research.google.com/drive/19Qat-59Rz7laqR9NSibKeBcxBSBtFptx?usp=sharing) <br/>
-[Google Collab for LSTM Shilling Attack Detector](https://colab.research.google.com/drive/1GH83DX_sWLPSxoil7nC89Kcft2vr5KbL?usp=sharing) <br/>
-Please see _*links.txt*_ for links to the dataset used in this repository.
+Please see _*links.txt*_ for links to the dataset used in this repository. <br/>
+:link: [Recommendation System](https://colab.research.google.com/drive/19Qat-59Rz7laqR9NSibKeBcxBSBtFptx?usp=sharing) <br/>
+:link: [LSTM Shilling Attack Detector](https://colab.research.google.com/drive/1oA1rTGMnUxWPxsm3rWcF8cNecQDPX8yw?usp=sharing) <br/>
+:link: [CNN Shilling Attack Detector](https://colab.research.google.com/drive/1E6D4UKCTQL7YVbmplVCWP_BcgSSdCC07?usp=sharing) <br/>
+
 
 
 ## Item-Based Collobarative-Filtering Recommendation System (ICBFRS)
