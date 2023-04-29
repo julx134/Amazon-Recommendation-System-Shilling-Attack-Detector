@@ -1,4 +1,5 @@
-# Amazon-Recommendation-System
+# Amazon-Recommendation-System-Shilling Attack Detector
+In the e-commerce industry, online retailers like Amazon, Alibaba, eBay, etc., employ recommendation systems to reduce information overload and provide better user experience for customers while shopping online. However, recommendation systems are susceptible to malicious manipulation of recommendations known as shilling attacks which impact the accuracy, fairness, and trustworthiness of e-commerce companies resulting in negative repurcussions not only for the customer but for the broader economy.
 
 ![](roadmap.JPG)
 
