@@ -38,7 +38,7 @@ We went with a simple architecture for the CNN to detect shilling attacks. We ut
 and two dense (fully connected) layers. This is because, through an iterative process, we learned that
 adding more layers would increase the complexity of
 the model adding difficulty to the training and optimization as well as the risk of overfitting the data. <br/>
-
+![](CNN.JPG)
 
 ### Long Short-Term Memory
 To detect these attacks, we use a Long Short-Term Memory (LSTM) network to capture contextual dependencies of users vs. shilling attackers. To do this, we first pre-process the ratings dataset into user-item vectors where each vector represents a user and all of their item ratings (any items not rated will be set to zero). Then we feed these vectors into the model with the following architecture: <br/>
