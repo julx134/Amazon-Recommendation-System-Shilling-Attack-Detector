@@ -31,8 +31,17 @@ resources to train the model and that we did not have a computationally efficien
 ## Shilling Attacks
 A shilling attack is any form of malicious intent by a user or organization on recommendation systems in order to sway the prediction model to their economic benefit and/or at the economic cost of others. There are multiple types of attacks but they can be classified either into low-level attacks and high-level attacks where high-level attacks require the attacker to know the domian knowledge in depth, whereas low-level attacks do not. <br/>
 
-### LSTM Shilling Attack Dectector
-To detect these attacks, we use a Long Short Term Memory network to capture contextual dependencies of users vs. shilling attackers. To do this, we first pre-process the ratings dataset into user-item vectors where each vector represents a user and all of their item ratings (any items not rated will be set to zero). Then we feed these vectors into the model with the following architecture: <br/>
+## Shilling Attack Detectors
+
+### Convolutional Neural Network
+We went with a simple architecture for the CNN to detect shilling attacks. We utilized two convolutional layers
+and two dense (fully connected) layers. This is because, through an iterative process, we learned that
+adding more layers would increase the complexity of
+the model adding difficulty to the training and optimization as well as the risk of overfitting the data. <br/>
+
+
+### Long Short-Term Memory
+To detect these attacks, we use a Long Short-Term Memory (LSTM) network to capture contextual dependencies of users vs. shilling attackers. To do this, we first pre-process the ratings dataset into user-item vectors where each vector represents a user and all of their item ratings (any items not rated will be set to zero). Then we feed these vectors into the model with the following architecture: <br/>
 ![](lstm_architecture.JPG)
 <br/>
 Finally, we cluster the predictions using k-means clustering to classify the users as either being an authentic user or a shilling attacker. A sample probability distribution graph of the predictions is shown below: </br>
