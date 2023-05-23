@@ -55,5 +55,6 @@ into the LSTM network. The sigmoid
 activation function is used to introduce non-linearity into the model. The BatchNormalization
 layer and the Dropout layer with a rate of 0.2 are added after the first LSTM layer to prevent
 overfitting and to balance out the training. Finally, the output is reshaped and sent to a Dense
-layer for classification of the input data.
+layer for classification of the input data. <br/>
+![](CNN-LSTM.jpg)
 
