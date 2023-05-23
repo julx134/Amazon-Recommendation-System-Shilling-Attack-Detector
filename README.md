@@ -47,3 +47,13 @@ To detect these attacks, we use a Long Short-Term Memory (LSTM) network to captu
 Finally, we cluster the predictions using k-means clustering to classify the users as either being an authentic user or a shilling attacker. A sample probability distribution graph of the predictions is shown below: </br>
 ![](lstm_probability_distribution.JPG)
 
+### CNN-LSTM Hybrid
+The CNN-LSTM hybrid architecture involves several components in
+sequence for shilling attack detection. The first component is the CNN network which applies filters to the
+user-item rating matrix to extract important spatial features in the data. The output of the CNN component is then fed
+into the LSTM network. The sigmoid
+activation function is used to introduce non-linearity into the model. The BatchNormalization
+layer and the Dropout layer with a rate of 0.2 are added after the first LSTM layer to prevent
+overfitting and to balance out the training. Finally, the output is reshaped and sent to a Dense
+layer for classification of the input data.
+
