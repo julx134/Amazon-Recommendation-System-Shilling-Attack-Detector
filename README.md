@@ -59,4 +59,8 @@ layer for classification of the input data. <br/>
 ![](CNN-LSTM.jpg)
 
 ## Results
-In terms of the F-measure metric, the CNN-LSTM model consistently outperforms the CNN model on both datasets for all attacks. The CNN and CNN-LSTM models show consistent performance across all attack types. The LSTM model achieves the highest score for the bandwagon attack but is inconsistent overall. From the results, we draw conclusions that the LSTM model performs better on the Amazon dataset due to its sensitivity to data sparsity and detecting shilling users based on the deviation of prediction values while the CNN model is strong in extracting features and correlation while being a stable model. The LSTM-CNN hybrid model proves to be the most effective in detecting multiple attacks, combining the strengths of both models.
+In terms of the F-measure metric, the CNN-LSTM model consistently outperforms the CNN model on both datasets for all attacks. The CNN and CNN-LSTM models show consistent performance across all attack types. The LSTM model achieves the highest score for the bandwagon attack but is inconsistent overall. From the results, we draw conclusions that the LSTM model performs better on the Amazon dataset due to its sensitivity to data sparsity and detecting shilling users based on the deviation of prediction values while the CNN model is strong in extracting features and correlation while being a stable model. The LSTM-CNN hybrid model proves to be the most effective in detecting multiple attacks, combining the strengths of both models. <br/>
+### Bar Chart of CNN, LSTM, CNN-LSTM Shilling Detector Performance on F-measure, 100K MovieLens Appliance Infected Datasets
+![](MovieLens_Analysis_Fmeasure.JPG)
+### Bar Chart of CNN, LSTM, CNN-LSTM Shilling Detector Performance on F-measure, 50K Amazon Appliance Infected Datasets
+![](Amazon_Analysis_Fmeasure.JPG)
